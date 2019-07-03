@@ -10,13 +10,15 @@ $postId = $_GET['postid'];
 
 if (isset($_GET['postid'])) {
 
-    $postDelete = mysqli_query($connection, "DELETE FROM blog.posts WHERE id= $postId");
+    $query = "DELETE FROM blog.posts WHERE id= $postId";
+    $database = new Database();
+    $result = $database->executeQuery($query);
 
 
-    if ($postDelete === TRUE) {
+    if ($result === TRUE) {
         echo "Record deleted successfully";
     } else {
-        echo "Error deleting record: " . $connection->error;
+        echo "Error deleting record: " . $database->error;
 
     }
 }

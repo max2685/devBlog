@@ -4,16 +4,18 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include('/var/www/dev/db.php');
+include('/var/www/dev/Database.php');
 
 $login = $_POST['login'];
 $password = $_POST['password'];
-
 $password = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10]);
 
-$log = mysqli_query($connection, "SELECT * FROM blog.Users WHERE 'login' = $login AND 'password' = $password");
+$query = "SELECT * FROM blog.Users WHERE 'login' = $login AND 'password' = $password";
+$database = new Database();
+$result = $database->executeQuery($query);
 
-if (!$log || mysqli_num_rows($log) == 0) {
+
+if (!$result) {
 
     echo "You are in !";
 

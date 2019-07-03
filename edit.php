@@ -3,31 +3,45 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include('/var/www/dev/db.php');
+include('/var/www/dev/Database.php');
 
 $postId = $_GET['postid'];
+
+$database = new Database();
 
 if (isset($_POST['name'])) {
 
     $postName = $_POST['name'];
     $postSurname = $_POST['surname'];
-    $post = mysqli_query($connection, "UPDATE blog.posts SET name = $postName, surname = $postSurname WHERE id= $postId");
+
+
+    $query ="UPDATE blog.posts SET name = :postName, surname = :postSurname WHERE id= :postId";
+    $params = ['postName'=>$postName, 'postSurname'=>$postSurname, 'postId'=>$postId];
+    $edit = $database->prepareAndExecuteQuery($query,$params);
+var_dump($edit);
+    if ($edit === false) {
+        echo $database->error;
+    }else{
+        echo "Excellent";
+    }
 }
 
 $select = "SELECT * FROM blog.posts WHERE id = $postId";
-$result = $connection->query($select)->fetch_assoc();
+$result = $database->prepareAndExecuteQuery($select);
+$post = $result[0];
+//var_dump($result[0]);
 
-    echo $connection->error;
     echo "
     
-      <FORM method='POST'>
+      <form method='POST'>
+      
         
-        <input name='name' type='text' value = " . $result['name'] . ">
-        <input name='surname' type='text' value = " . $result['surname'] . ">
+        <input name='name' type='text' value = " . $post['name'] . ">
+        <input name='surname' type='text' value = " . $post['surname'] . ">
      
          <input type = 'submit' >
 
-</FORM >
+</form >
     ";
 
 
