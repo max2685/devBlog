@@ -37,14 +37,18 @@
                 <a href="#" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">About us</a>
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#aboutModal">About us</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Contact</a>
             </li>
+
         </ul>
 
+
         <form class="form-inline  my-2 my-sm-0">
+            <a href="#" class="nav-link"data-toggle="modal" data-target="#loginModal">Log in</a>
+            <a href="#" class="nav-link">Registration</a>
             <input type="text" class="form-contol mr-sm-2 " placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
         </form>
@@ -96,11 +100,47 @@
 <!--    fade - animation ,
  The tabindex attribute can control the order in which the Tab key moves through the HTML page, overriding the default order.
  The aria-labelledby attribute establishes relationships between objects and their label(s), and its value should be one or more element IDs, which refer to elements that have the text needed for labeling. List multiple element IDs in a space delimited fashion.-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">About us</h5>
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputEmail">Email adress</label>
+                            <input type="email" class="form-control" id="inputEmail" aria-labelledby="emailHelp" placeholder="Email" required>
+                            <small id="emailHelp" class="form-text text-muted">Enter your Email</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" aria-labelledby="passwordHelp" placeholder="Password" required>
+                            <small id="passwordHelp" class="form-text text-muted">Your password has to contain 10 simbols</small>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input">
+                                Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="aboutModalLabel">About us</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -117,7 +157,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<!--                <button type="submit" class="btn btn-primary">Save changes</button>-->
+                <!--                <button type="submit" class="btn btn-primary">Save changes</button>-->
             </div>
         </div>
     </div>
