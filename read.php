@@ -1,39 +1,46 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+function read()
+{
 
-include('/var/www/dev/Database.php');
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
-$query = "SELECT id, name, surname FROM blog.posts";
-$database = new Database();
-$result = $database->executeQuery($query);
+    include('/var/www/dev/Database.php');
 
-if ($result){
-?>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Surname</th>
+    $database = new Database();
 
-    </tr>
-    <?php
-    foreach($result as $row){
-        echo "
+    $query = "SELECT id, name, surname FROM blog.posts";
+
+    $result = $database->prepareAndExecuteQuery($query);
+
+    if ($result) {
+        ?>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+
+            </tr>
+        <?php
+        foreach ($result as $row) {
+            echo "
         <tr>
-            <td>".$row["id"]."</td>
-            <td>".$row["name"]."</td>
-            <td>".$row["surname"]."</td>
+            <td>" . $row["id"] . "</td>
+            <td>" . $row["name"] . "</td>
+            <td>" . $row["surname"] . "</td>
             
         </tr>   
         ";
-    }
-    echo "
+        }
+        echo "
     </table>
     ";
     } else {
         echo "0 results";
     }
-    ?>
+}
+
+read();

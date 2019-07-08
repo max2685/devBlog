@@ -1,24 +1,27 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+function delete ()
+{
 
-include('/var/www/dev/db.php');
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
-$postId = $_GET['postid'];
+    include('/var/www/dev/Database.php');
 
-if (isset($_GET['postid'])) {
+    $postId = $_GET['postid'];
+    if (isset($postId)) {
 
-    $query = "DELETE FROM blog.posts WHERE id= $postId";
-    $database = new Database();
-    $result = $database->executeQuery($query);
+        $query = "DELETE FROM blog.posts WHERE id=:postId";
+        $params = ['postId' => $postId];
+        $database = new Database();
+        $delete = $database->prepareAndExecuteQuery($query, $params);
 
-
-    if ($result === TRUE) {
-        echo "Record deleted successfully";
-    } else {
-        echo "Error deleting record: " . $database->error;
-
+        if ($delete === false) {
+            echo $database->error;
+        } else {
+            echo "Excellent";
+        }
     }
 }
+delete();

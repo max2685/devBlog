@@ -21,11 +21,6 @@ class Database
         }
     }
 
-    public function executeQuery($query)
-    {
-        return $this->connection->query($query, PDO::FETCH_ASSOC)->fetchAll(PDO::FETCH_ASSOC);
-
-    }
 
 
     public function prepareAndExecuteQuery($query, $params = array(),$fetchMode = PDO::FETCH_ASSOC)
