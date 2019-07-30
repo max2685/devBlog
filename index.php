@@ -169,8 +169,8 @@ if (isset($_GET['page'])) {
     $controller->$functionName();
 } else {
     $defaultPage = 'index';
-    $controller = new BlogController();
-    $controller->$defaultPage();
+    $blogController = new BlogController();
+    $blogController->$defaultPage();
 }
 
 
