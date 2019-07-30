@@ -8,7 +8,7 @@ function insert ()
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    include('/var/www/dev/Database.php');
+    require_once('/var/www/dev/Database.php');
 
 
     if (isset($_POST['name'])) {

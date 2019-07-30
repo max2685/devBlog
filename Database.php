@@ -1,9 +1,9 @@
 <?php
 
-
 class Database
 {
     private $connection;
+
 
     //make constructor
     public function __construct()
@@ -39,16 +39,3 @@ class Database
         }
     }
 }
-//$stmt = $this->connection->prepare($query);
-//if($query === true){
-//    $stmt->execute();
-//}else{
-//    $stmt = $this->connection->query($query);
-//}
-//$stmt->fetchAll();
-//
-//} catch (PDOException $e) {
-//    print "Error!: " . $e->getMessage() . "<br/>";
-//    die();
-//}
-//        return ($stmt);

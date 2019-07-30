@@ -1,5 +1,5 @@
 <?php
-include('/var/www/dev/Database.php');
+require_once('/var/www/dev/Database.php');
 
 function leaveComment ()
 {
