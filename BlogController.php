@@ -45,8 +45,9 @@ class BlogController
             <td>" . $row["name"] . "</td>
             <td>" . $row["surname"] . "</td>
          
-            <td><a class=\"btn btn-success\" href='/?page=blog/edit '>Edit</a></td>
-            <td><a class=\"btn btn-warning\" href='/AllInOne.php?action=delete&postid=" . $row['id'] . "'>Delete</a></td>
+            <td><a class=\"btn btn-success\" href='/?page=blog/edit&postid=" . $row["id"] . "'>Edit</a></td>
+            <td><a class=\"btn btn-warning\" href='/?page=blog/delete&postid=" . $row["id"] . "'>Delete</a></td>
+            
 
         </tr>
         ";
@@ -104,6 +105,7 @@ class BlogController
     public function edit ()
     {
         $postId = $_GET['postid'];
+        var_dump($postId);
 
         if (isset($_POST['name'])) {
 
