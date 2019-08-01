@@ -7,6 +7,7 @@ require_once('UserController.php');
 
 
 if (isset($_GET['page'])) {
+    var_dump($_GET);
     $pageGetVariable = $_GET['page'];
     $pageArray = explode('/', $pageGetVariable);
     $controllerUserFriendlyName = $pageArray[0];
@@ -23,7 +24,7 @@ if (isset($_GET['page'])) {
         ]
     ],
         'user' => [
-            'internalControllerName=>UserController',
+            'internalControllerName' => 'UserController',
             'functions' => [
                 'login' => 'login',
                 'registration' => 'registration'

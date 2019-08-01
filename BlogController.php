@@ -60,7 +60,7 @@ class BlogController
         }
 
         echo '
-        <form method="POST" action="/insert.php">
+        <form method="POST" action="insert.php">
             <input type="text" name="name" value="123">
             <input type="text" name="surname" value="456">
             <input type="submit" value="post">
@@ -68,7 +68,7 @@ class BlogController
 
         <hr>
 
-        <form method="POST" action="/login.php">
+        <form method="POST" action="/?page=user/login">
             <input type="text" name="login" placeholder="login">
             <input type="text" name="password" placeholder="password">
             <input type="submit" value="Go">
@@ -76,7 +76,7 @@ class BlogController
 
         <hr>
 
-        <form method="POST" action="/registration.php">
+        <form method="POST" action="/?page=user/registration">
             <input type="text" name="login" placeholder="login">
             <input type="text" name="password" placeholder="password">
             <input type="submit" value="Registration">
