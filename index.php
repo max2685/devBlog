@@ -1,50 +1,16 @@
 
 <!--PHP GOES HERE-->
 <?php
+
+
 include('htmlAndCss.php');
+require_once('Routes.php');
 require_once('BlogController.php');
 require_once('UserController.php');
 
 
-if (isset($_GET['page'])) {
-    var_dump($_GET);
-    $pageGetVariable = $_GET['page'];
-    $pageArray = explode('/', $pageGetVariable);
-    $controllerUserFriendlyName = $pageArray[0];
-    $functionUserFriendlyNameName = $pageArray[1];
-
-    $routes = ['blog' => [
-        'internalControllerName' => 'BlogController',
-        'functions' => [
-            'index' => 'index',
-            'delete' => 'delete',
-            'edit' => 'edit',
-            'read' => 'read',
-            'insert' => 'insert'
-        ]
-    ],
-        'user' => [
-            'internalControllerName' => 'UserController',
-            'functions' => [
-                'login' => 'login',
-                'registration' => 'registration'
-            ]
-        ]
-    ];
-
-    $controllerArrayWithFunctions = $routes[$controllerUserFriendlyName];
-    $controllerName = $controllerArrayWithFunctions['internalControllerName'];
-    $functionName = $controllerArrayWithFunctions['functions'][$functionUserFriendlyNameName];
-
-    $controller = new $controllerName();
-    $controller->$functionName();
-} else {
-    $defaultPage = 'index';
-    $blogController = new BlogController();
-    $blogController->$defaultPage();
-}
-
 ?>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

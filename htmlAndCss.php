@@ -21,7 +21,7 @@
 
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">
+    <a href="index.php" class="navbar-brand">
         <img src="https://i.pinimg.com/originals/9d/16/87/9d1687fe53247d0da876e4bff2e3ce64.png" width="30" height="30"
              alt="logo">
     </a>
@@ -45,7 +45,7 @@
 
         <form class="form-inline  my-2 my-sm-0">
             <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">Log in</a>
-            <a href="#" class="nav-link">Registration</a>
+            <a href="#" class="nav-link" data-toggle="modal" data-target="#registrationModal">Registration</a>
         </form>
 
     </div>
@@ -90,6 +90,47 @@ The aria-labelledby attribute establishes relationships between objects and thei
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary">Log in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registrationModalLabel">Registration</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputEmail">Email adress</label>
+                            <input type="email" class="form-control" id="inputEmail" aria-labelledby="emailHelp"
+                                   placeholder="Email" required>
+                            <small id="emailHelp" class="form-text text-muted">Enter your Email</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" class="form-control" id="inputPassword"
+                                   aria-labelledby="passwordHelp" placeholder="Password" required>
+                            <small id="passwordHelp" class="form-text text-muted">Your password has to contain 10
+                                simbols
+                            </small>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input">
+                                Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registration</button>
                     </form>
                 </div>
             </div>

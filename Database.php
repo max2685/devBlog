@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+if (isset($_SESSION['username'])) {
+    echo "You are registered";
+} else {
+    echo "fuck off";
+}
+
+
 class Database
 {
     private $connection;

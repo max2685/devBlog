@@ -60,7 +60,7 @@ class BlogController
         }
 
         echo '
-        <form method="POST" action="insert.php">
+        <form method="POST" action="/?page=user/insert">
             <input type="text" name="name" value="123">
             <input type="text" name="surname" value="456">
             <input type="submit" value="post">
