@@ -2,6 +2,14 @@
 <!--PHP GOES HERE-->
 <?php
 
+session_start();
+
+if (isset($_SESSION['username'])) {
+    echo "Privet ".$_SESSION['username'];
+} else {
+    echo "You are not logged in";
+}
+
 
 include('htmlAndCss.php');
 require_once('Routes.php');

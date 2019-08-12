@@ -16,17 +16,21 @@ class UserController
     {
         $login = $_POST['login'];
         $password = $_POST['password'];
-        $password = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10]);
+        $password = md5($password);
 
-        $query = "SELECT * FROM blog.Users WHERE 'login' = :login AND 'password' = :password";
-        $params = ['login' => $login, 'password' => $password];
+        $query = "SELECT * FROM blog.users WHERE login = :login AND password = :password";
+
+        $params = [':login' => $login, ':password' => $password];
+
         $result = $this->dataBase->prepareAndExecuteQuery($query, $params);
 
-
+        var_dump($result);
         if (!$result) {
-            echo "You are not registated";
+
+            echo "Password or login are incorrect";
         } else {
-            echo "You are in";
+            $_SESSION['username'] = $login ;
+            echo "You have logged in";
         }
     }
 
@@ -35,7 +39,7 @@ class UserController
         if (isset($_POST['login'])) {
             $login = $_POST['login'];
             $password = $_POST['password'];
-            $password = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10]);
+            $password = md5($password);
 
             $query = "INSERT INTO blog.users (login, password) VALUES (:login, :password)";
             $params = ['login' => $login, 'password' => $password];
